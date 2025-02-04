@@ -1,8 +1,8 @@
-# Variant Analysis Workshop 
+# Introduction to Variant Analysis
 
 | Audience | Computational skills required| Duration |
 :----------|:----------|:----------|
-| Biologists | Introduction to the Command-line | 3 - 2.5 hour sessions |
+| Biologists | Shell for Bioinformatics | 3 - 2.5 hour sessions |
 
 ### Description
 
@@ -12,7 +12,7 @@ This ***Introduction to Variant Analysis*** workshop is aimed at providing best 
 
 #### Pre-Requisite
 
-This workshop series is designed for users with a background in the fundamentals of working in the shell environment on an high-performance computing cluster (HPCC). If you don't have this background or are unsure if you are ready for this workshop series, you should first complete our [***Introduction to the Command Line***](https://hbctraining.github.io/Intro-to-shell-flipped/) workshop series.
+This workshop series is designed for users with a background in the fundamentals of working in the shell environment on an high-performance computing cluster (HPCC). If you don't have this background or are unsure if you are ready for this workshop series, you should first complete our [***Shell for Bioinformatics***](https://hbctraining.github.io/Shell-for-bioinformatics/) workshop series.
 
 ### Learning Objectives
 
