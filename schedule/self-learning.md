@@ -1,4 +1,4 @@
-# Introduction to Variant Calling
+# Introduction to Variant Analysis
 
 ## Learning Objectives
 
