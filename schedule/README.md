@@ -1,6 +1,6 @@
 # Workshop Schedule
 
-> **NOTE:** The *Basic Data Skills* [Introduction to the command-line interface](https://hbctraining.github.io/Intro-to-shell-flipped/schedule/) workshop is a prerequisite.
+> **NOTE:** The *Basic Data Skills* [Shell for Bioinformatics](https://hbctraining.github.io/Shell-for-bioinformatics/schedule/) workshop is a prerequisite.
 
 
 ## Pre-reading:
