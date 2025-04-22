@@ -17,7 +17,7 @@
 |:-----------:|:----------:|:--------:|
 | 9:30 - 10:10 | [Workshop Introduction](../lectures/workshop_intro_slides.pdf) | Will |
 | 10:00 - 11:30 | [Introduction to Variant Calling](../lectures/Variant_calling_intro.pdf) | Elizabeth |
-| 11:30 - 11:50 | [Project Organization](../lessons/01_data_organization.md) | Elizabeth |
+| 11:30 - 11:50 | [Project Organization](../lessons/01_data_organization.md) | Heather |
 | 11:50 - 12:00 | Overview of self-learning materials and homework submission | Will |
 
 ### Before the next class:
@@ -76,9 +76,9 @@ II. **Complete the exercises**:
 | Time |  Topic  | Instructor |
 |:-----------:|:----------:|:--------:|
 | 9:30 - 10:00 | Self-learning lessons review | All |
-| 10:00 - 10:30 | [Alignment File Quality Control](../lessons/05_alignment_QC.md) | Elizabeth |
+| 10:00 - 10:30 | [Alignment File Quality Control](../lessons/05_alignment_QC.md) | Heather |
 | 10:30 - 10:40 | Break |  |
-| 10:40 - 11:15 | [Aggregating QC metrics using MultiQC](../lessons/06_aggregate_multiqc.md) | Elizabeth |
+| 10:40 - 11:15 | [Aggregating QC metrics using MultiQC](../lessons/06_aggregate_multiqc.md) | Heather |
 | 11:15 - 12:00 | [Variant Calling](../lessons/07_variant_calling.md) | Will |
 
 
@@ -122,10 +122,10 @@ II. **Complete the exercises**:
 
 | Time |  Topic  | Instructor |
 |:-----------:|:----------:|:--------:|
-| 9:30 - 10:00 | Self-learning lessons review | Elizabeth |
-| 10:00 - 10:30 | [Variant Prioritization with SnpSift](../lessons/10_variant_prioritization.md) | Elizabeth |
+| 9:30 - 10:00 | Self-learning lessons review | All |
+| 10:00 - 10:30 | [Variant Prioritization with SnpSift](../lessons/10_variant_prioritization.md) | Will |
 | 10:30 - 11:00 | [Exercise](../lessons/11_SnpSift_exercise.md) ([Key](../lessons/SnpSift_exercise_KEY.md)) | Will |
-| 11:00 - 11:30 | [Visualization in IGV](../lessons/12_IGV.md) | Will |
+| 11:00 - 11:30 | [Visualization in IGV](../lessons/12_IGV.md) | Heather |
 | 11:30 - 12:00 | Q & A (review of Automation) | All |
 
 ### Questions?
@@ -140,7 +140,7 @@ II. **Complete the exercises**:
 | 9:30 - 10:30 | Introduction to cBioPortal | Dr. Tali Mazor |
 | 10:30 - 11:30 | cBioPortal Practical | Dr. Tali Mazor |
 | 11:30 - 11:45 | [Oncoprint Integration](../lessons/13_oncoprint_creation.md) | Will |
-| 11:45 - 12:00 | [Wrap up](../lectures/workshop_wrapup_slides.pdf) | Elizabeth |
+| 11:45 - 12:00 | [Wrap up](../lectures/workshop_wrapup_slides.pdf) | Heather |
 
 ## File Format Reference
 * [File Formats](../lessons/file_formats_reference.md)
