@@ -93,7 +93,11 @@ Once logged in, you should see the O2 icon, some news, and the command prompt, e
 
 ### Creating a scratch space
 
-> Due to the limited storage space on `/home`, we are going to take advantage of `scratch` to hold some of our intermediate files for this workshop. This is a very common use of the scratch space as many analyses will have large intermediate files, which would otherwise fill up our home directories.
+Due to the limited storage space on `/home`, we are going to take advantage of `scratch` to hold some of our intermediate files for this workshop. This is a very common use of the scratch space as many analyses will have large intermediate files, which would otherwise fill up our home directories.
+
+<p align="center">
+<img src="../img/scratch_recommended_practice.png" width="600">
+</p>
 
 While on the login node, we will create our space on `/n/scratch`. In order to do so, we will need to run a script provided by the HMS Research Computing team:
 
