@@ -200,8 +200,8 @@ Next, we need to **add the modules** that we will be using for alignment:
 
 ```
 # Load modules
-module load gcc/6.2.0
-module load bwa/0.7.17
+module load gcc/14.2.0
+module load bwa/0.7.18
 ```
 
 > NOTE: On O2, many of the common tools were compiled using `GCC` version 6.2.0, so to be able to access them, we first need to load the `GCC` module.
@@ -270,8 +270,8 @@ bwa mem \
 #SBATCH -o bwa_alignment_normal_%j.out
 #SBATCH -e bwa_alignment_normal_%j.err<br>
 # Load modules
-module load gcc/6.2.0
-module load bwa/0.7.17<br>
+module load gcc/14.2.0
+module load bwa/0.7.18<br>
 # Assign files to bash variables
 REFERENCE_SEQUENCE=/n/groups/hbctraining/variant_calling/reference/GRCh38.p7.fa
 LEFT_READS=/home/$USER/variant_calling/raw_data/syn3_normal_1.fq.gz
@@ -319,8 +319,8 @@ $ sed 's/normal/tumor/g' bwa_alignment_normal.sbatch >  bwa_alignment_tumor.sbat
 #SBATCH -o bwa_alignment_tumor_%j.out
 #SBATCH -e bwa_alignment_tumor_%j.err<br>
 # Load modules
-module load gcc/6.2.0
-module load bwa/0.7.17<br>
+module load gcc/14.2.0
+module load bwa/0.7.18<br>
 # Assign files to bash variables
 REFERENCE_SEQUENCE=/n/groups/hbctraining/variant_calling/reference/GRCh38.p7.fa
 LEFT_READS=/home/$USER/variant_calling/raw_data/syn3_tumor_1.fq.gz
