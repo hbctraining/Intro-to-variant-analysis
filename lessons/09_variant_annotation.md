@@ -40,7 +40,7 @@ The first step in annotating your VCF file is finding the appropriate SnpEff dat
 To see if your genome of interest is in the `SnpEff` database, we first need to load the `SnpEff` module:
 
 ```
-module load snpEff/4.3g
+module load snpEff/5.2f
 ```
 
 With the `SnpEff` module loaded, let's use the following command to browse all of the currently available genomes:
