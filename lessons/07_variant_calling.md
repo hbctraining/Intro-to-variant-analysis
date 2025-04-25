@@ -145,7 +145,7 @@ Next to add the `GATK4` module we are going to load:
 
 ```
 # Load the GATK module
-module load gatk/4.1.9.0
+module load gatk/4.6.1.0
 ```
 
 And now, we need to create our variables:
