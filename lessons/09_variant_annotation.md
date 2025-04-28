@@ -49,13 +49,13 @@ With the `SnpEff` module loaded, let's use the following command to browse all o
 java -jar $SNPEFF/snpEff.jar databases | less
 ```
 
-The first column is the database name and the second column in the `Genus_species` for the organism. There is also a database download link where the database can be downloaded at but this can be ignored as SnpEff will automatically download the database if needed. As you can see there are tens of thousands of these pre-built databases. So let's exit the `less` buffer page and **see which GRCh databases are available**:
+The first column is the database name and the second column in the `Genus_species` for the organism. There is also a database download link where the database can be downloaded at but this can be ignored as SnpEff will automatically download the database if needed. As you can see there are tens of thousands of these pre-built databases. So let's exit the `less` buffer page and **see which hg38 databases are available**:
 
 ```
-java -jar $SNPEFF/snpEff.jar databases | grep "GRCh" 
+java -jar $SNPEFF/snpEff.jar databases | grep "hg38" 
 ```
 
-We can see that this build of SnpEff has five possible GRCh databases that we can use for annotation, including one for GRCh38.p7 called GRCh38.p7.RefSeq. Now that we have found the database that we would like to use for our analysis, we can run `SnpEff`.
+We can see that this build of SnpEff has three possible hg38 databases that we can use for annotation. We will use the one labelled hg38. Now that we have found the database that we would like to use for our analysis, we can run `SnpEff`.
 
 ### Running SnpEff
 
@@ -119,7 +119,7 @@ Next, we will add the line to load the modules that we will need:
 # Load modules
 module load gcc/9.2.0
 module load bcftools/1.14
-module load snpEff/4.3g
+module load snpEff/5.2f
 ```
 
 Also, we will add our variables:
@@ -348,7 +348,7 @@ Let's explain each part of this command:
 # Load modules
 module load gcc/9.2.0
 module load bcftools/1.14
-module load snpEff/4.3g<br>
+module load snpEff/5.2f<br>
 # Assign variables
 REPORTS_DIRECTORY=/home/$USER/variant_calling/reports/snpeff/
 SAMPLE_NAME=mutect2_syn3_normal_syn3_tumor
