@@ -117,8 +117,8 @@ Next, we will add the line to load the modules that we will need:
 
 ```
 # Load modules
-module load gcc/9.2.0
-module load bcftools/1.14
+module load gcc/14.2.0
+module load bcftools/1.21
 module load snpEff/5.2f
 ```
 
@@ -279,8 +279,8 @@ Let's discuss each part of this command:
   <summary><b>Click here to see how to annotate our VCF file with the dbSNP annotation in <code>bcftools</code></b></summary>
 The first thing we are going to need to do is load the modules that we will be using:<br>
 <pre>
-module load gcc/9.2.0
-module load bcftools/1.14
+module load gcc/14.2.0
+module load bcftools/1.21
 </pre>
 Assuming we have already indexed our dbSNP VCF file, the first thing that we are going to need to do is compress the VCF file that we wish to annotate with:
 <pre>
@@ -346,8 +346,8 @@ Let's explain each part of this command:
 #SBATCH -o variant_annotation_syn3_normal_syn3_tumor_%j.out
 #SBATCH -e variant_annotation_syn3_normal_syn3_tumor_%j.err<br>
 # Load modules
-module load gcc/9.2.0
-module load bcftools/1.14
+module load gcc/14.2.0
+module load bcftools/1.21
 module load snpEff/5.2f<br>
 # Assign variables
 REPORTS_DIRECTORY=/home/$USER/variant_calling/reports/snpeff/
