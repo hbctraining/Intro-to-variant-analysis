@@ -230,8 +230,8 @@ Next, we are going to index this file. While it is not necesscary for us to inde
 We are going to be using <code>tabix</code>, which is part of the <code>HTSlib</code> module. First, we will need to load the <code>HTSlib</code> module, which also requires us to load the <code>gcc</code> module as well:
     
 <pre>
-module load gcc/9.2.0
-module load htslib/1.14
+module load gcc/14.2.0
+module load htslib/1.21 
 </pre>
     
 In order to index our dbSNP file using <code>tabix</code>, we just need to run the following command:
