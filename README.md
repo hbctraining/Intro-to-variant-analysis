@@ -2,7 +2,7 @@
 
 | Audience | Computational skills required| Duration |
 :----------|:----------|:----------|
-| Biologists | Shell for Bioinformatics | 3 - 2.5 hour sessions |
+| Biologists | Shell for Bioinformatics | 4 - 2.5 hour sessions |
 
 ### Description
 
