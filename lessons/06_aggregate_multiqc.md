@@ -48,6 +48,13 @@ To find out more about individual metrics we encourage you to peruse [the Picard
 ### Aggregating QC
 Now, we could use MultiQC to just visualize the data from Picard `AlignmentSummaryMetrics` but that wouldn't be a very good use of the tool. Ideally, the more data we can aggregate, the easier it is to evaluate the quality of our samples with data collated across multiple results and multiple samples.
 
+Before we begin, let's check what reports we have available to aggregate using the `tree` command:
+
+```
+tree /home/${USER}/variant_calling/reports/
+PLACEHOLDER FOR COMMAND
+```
+
 `MultiQC` would be relatively quick to just run from the command-line, but it's best practice to write our steps to scripts so that we always have a record of what we did and how we created our reports. We will start by making sure we are in our scripts directory and writing a `sbatch` script in `vim` for submission:
 
 ```
