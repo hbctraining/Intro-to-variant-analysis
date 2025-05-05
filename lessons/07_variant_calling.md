@@ -206,10 +206,10 @@ Let's breakdown this command:
 - `--normal-sample $NORMAL_SAMPLE_NAME`: This is the name of that normal sample and will be used as a column header in the VCF file
 - `--input $TUMOR_BAM_FILE`: This is the second `bam` file that we are providing GATK and it happens to be the tumor sample
 - `--tumor-sample $TUMOR_SAMPLE_NAME`: This is the name of that tumor sample and will be used as a column header in the VCF file
-- `--panel-of-normals $PON_FILE`: This is the Panel of Normals file downloaded from the Broad Institute, an optional input file composed of "normal" samples used to help reduce technical artifacts 
 
 > **NOTE**: It is **VERY IMPORTANT** that the sample names (`--normal-sample $NORMAL_SAMPLE_NAME` and `--tumor-sample $TUMOR_SAMPLE_NAME`) are provided in the same order as the `--input` input BAM files!
 
+- `--panel-of-normals $PON_FILE`: This is the Panel of Normals file downloaded from the Broad Institute, an optional input file composed of "normal" samples used to help reduce technical artifacts
 - Parameters related to `--annotation`: These are a variety of additional annotations that we are going to add to the output VCF file. These are **not required for `MuTect2` to run**, but they provide additional details about our variants.
 - `--output $VCF_OUTPUT_FILE`: This is our output VCF file
 
