@@ -157,7 +157,7 @@ The detailed workflow for variant analysis that many researchers follow looks li
 
 ***
 
-**Exercise**
+[**Exercise**](exercise_key_00.md)
 
 <p align="center">
 <img src="../img/Difficulty_of_assignment.png" width="400">
