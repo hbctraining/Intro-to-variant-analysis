@@ -57,7 +57,7 @@ A panel of normals (PoN) is a resource derived from a set of healthy tissues wit
 
 In the above image we can see that for the left "variant", the panel of normals and the tumor all have a thymine "variant" in this position relative to the reference. This would likely be a technical artifact. However, for the right variant, we can see that while the tumor thymine allele is still present in all of the reads for this position like the previous case, the panel of normals shows variation and this signifies that this position is likely not a technical artifact.
 
-An additional benefit of a good panel of normals is that it can act as an additional filter for germline variants. This is particularly true when you run MuTect2 in tumor-only mode (discussed briefly later). If you do not have access to a panel of normals, you can also use a panel of normals that the Broad Institute hosts which is derived from the [1000 Genomes Project](https://www.internationalgenome.org/). This data can be downloaded [here](https://storage.googleapis.com/gatk-best-practices/somatic-hg38/1000g_pon.hg38.vcf.gz). **We will are currently testing the best way to implement this and will hopefully have a implementation next week.** The Broad Institute also provides instructions on how to make your own panel of normals [here](https://gatk.broadinstitute.org/hc/en-us/articles/360035531132--How-to-Call-somatic-mutations-using-GATK4-Mutect2). It is not required to use a panel of normals when running Mutect2, but it is [recommended](https://gatk.broadinstitute.org/hc/en-us/articles/360037593851-Mutect2).
+An additional benefit of a good panel of normals is that it can act as an additional filter for germline variants. This is particularly true when you run MuTect2 in tumor-only mode (discussed briefly later). If you do not have access to a panel of normals, you can also use a panel of normals that the Broad Institute hosts which is derived from the [1000 Genomes Project](https://www.internationalgenome.org/). This data can be downloaded [here](https://storage.googleapis.com/gatk-best-practices/somatic-hg38/1000g_pon.hg38.vcf.gz). The Broad Institute also provides instructions on how to make your own panel of normals [here](https://gatk.broadinstitute.org/hc/en-us/articles/360035531132--How-to-Call-somatic-mutations-using-GATK4-Mutect2). It is not required to use a panel of normals when running Mutect2, but it is [recommended](https://gatk.broadinstitute.org/hc/en-us/articles/360037593851-Mutect2).
 
 > Note: When using a panel of normals VCF file in MuTect2, you will also need an index of the VCF file. We have already created the index for this workshop, but this can be accomplished in one of a few ways:
 > 1. If you are using the panel of normals provided by the Broad Institute, then they also provide a index that you can download from [here](https://storage.googleapis.com/gatk-best-practices/somatic-hg38/1000g_pon.hg38.vcf.gz.tbi).
@@ -158,6 +158,7 @@ NORMAL_SAMPLE_NAME=syn3_normal
 NORMAL_BAM_FILE=/n/scratch/users/${USER:0:1}/${USER}/variant_calling/alignments/${NORMAL_SAMPLE_NAME}_GRCh38.p7.coordinate_sorted.bam
 TUMOR_SAMPLE_NAME=syn3_tumor
 TUMOR_BAM_FILE=/n/scratch/users/${USER:0:1}/${USER}/variant_calling/alignments/${TUMOR_SAMPLE_NAME}_GRCh38.p7.coordinate_sorted.bam
+PON_FILE=/n/groups/hbctraining/variant_calling/reference/1000g_pon.hg38.vcf.gz
 VCF_OUTPUT_FILE=/n/scratch/users/${USER:0:1}/${USER}/variant_calling/vcf_files/mutect2_${NORMAL_SAMPLE_NAME}_${TUMOR_SAMPLE_NAME}_GRCh38.p7-raw.vcf
 ```
 
@@ -192,6 +193,7 @@ gatk Mutect2 \
   --normal-sample $NORMAL_SAMPLE_NAME \
   --input $TUMOR_BAM_FILE \
   --tumor-sample $TUMOR_SAMPLE_NAME \
+  --panel-of-normals $PON_FILE \
   --annotation ClippingRankSumTest --annotation DepthPerSampleHC --annotation MappingQualityRankSumTest --annotation MappingQualityZero --annotation QualByDepth --annotation ReadPosRankSumTest --annotation RMSMappingQuality --annotation FisherStrand --annotation MappingQuality --annotation DepthPerAlleleBySample --annotation Coverage \
   --output $VCF_OUTPUT_FILE
 ```
@@ -204,6 +206,7 @@ Let's breakdown this command:
 - `--normal-sample $NORMAL_SAMPLE_NAME`: This is the name of that normal sample and will be used as a column header in the VCF file
 - `--input $TUMOR_BAM_FILE`: This is the second `bam` file that we are providing GATK and it happens to be the tumor sample
 - `--tumor-sample $TUMOR_SAMPLE_NAME`: This is the name of that tumor sample and will be used as a column header in the VCF file
+- `--panel-of-normals $PON_FILE`: This is the Panel of Normals file downloaded from the Broad Institute, an optional input file composed of "normal" samples used to help reduce technical artifacts 
 
 > **NOTE**: It is **VERY IMPORTANT** that the sample names (`--normal-sample $NORMAL_SAMPLE_NAME` and `--tumor-sample $TUMOR_SAMPLE_NAME`) are provided in the same order as the `--input` input BAM files!
 
