@@ -32,7 +32,7 @@ Before we do anything, let's move to the directory with our VCF files and load t
 
 ```
 cd /n/scratch/users/${USER:0:1}/$USER/variant_calling/vcf_files/
-module load snpEff/4.3g
+module load snpEff/5.2f
 ```
 
 **SnpSift filter** is one of the most useful SnpSift commands. Using SnpSift filter you can filter VCF files **using arbitrary expressions.** In the most simple case, you can filter your SnpEff annotated VCF file based upon any of the **first seven fields** of the VCF file:
