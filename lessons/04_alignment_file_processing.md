@@ -248,7 +248,7 @@ Go ahead and save and quit. **Don't run it just yet!**
   <summary><b>Click here to see what our final <code>sbatch</code>code script for the normal sample should look like</b></summary> 
   <pre>
 #!/bin/bash
-# This sbatch script is for processing the alignment output from bwa and preparing it<br>
+# This sbatch script is for processing the alignment output from bwa and preparing it for use<br>
 # Assign sbatch directives
 #SBATCH -p priority
 #SBATCH -t 0-04:00:00
@@ -352,7 +352,7 @@ vim samtools_processing_normal.sbatch
 Next, we are going to need to set-up our <code>sbatch</code> submission script with our shebang line, description, <code>sbatch</code> directives, modules to load and file variables.
 <pre>
 #!/bin/bash
-# This sbatch script is for processing the alignment output from bwa and preparing it for use in GATK using Samtools<br>
+# This sbatch script is for processing the alignment output from bwa and preparing it for use<br>
 # Assign sbatch directives
 #SBATCH -p priority
 #SBATCH -t 0-04:00:00
@@ -484,7 +484,7 @@ The final script should look like:
     
 <pre>
 #!/bin/bash
-# This sbatch script is for processing the alignment output from bwa and preparing it for use in GATK using Samtools<br>
+# This sbatch script is for processing the alignment output from bwa and preparing it for use<br>
 # Assign sbatch directives
 #SBATCH -p priority
 #SBATCH -t 0-04:00:00
@@ -537,7 +537,7 @@ sed &#39;s/normal/tumor/g&#39; samtools_processing_normal.sbatch &gt; samtools_p
 The final <code>sbatch</code> submission script for the tumor sample should look like:
 <pre>
 #!/bin/bash
-# This sbatch script is for processing the alignment output from bwa and preparing it for use in GATK using Samtools<br>
+# This sbatch script is for processing the alignment output from bwa and preparing it for use<br>
 # Assign sbatch directives
 #SBATCH -p priority
 #SBATCH -t 0-04:00:00
