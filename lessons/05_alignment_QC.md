@@ -51,7 +51,7 @@ First, we need to add our shebang line, description and `sbatch` directives to t
 
 ```
 #!/bin/bash
-# This sbatch script is for collecting alignment metrics using GATK 
+# This sbatch script is for collecting alignment metrics using GATK
 
 # Assign sbatch directives
 #SBATCH -p priority
@@ -116,8 +116,8 @@ module load gatk/4.6.1.0<br>
 INPUT_BAM=/n/scratch/users/${USER:0:1}/${USER}/variant_calling/alignments/syn3_normal_GRCh38.coordinate_sorted.bam
 REFERENCE=/n/groups/hbctraining/variant_calling/reference/GRCh38.fa
 OUTPUT_METRICS_FILE=/home/${USER}/variant_calling/reports/picard/syn3_normal/syn3_normal_GRCh38.CollectAlignmentSummaryMetrics.txt<br>
-# Run Picard CollectAlignmentSummaryMetrics
-java -jar $PICARD/picard.jar CollectAlignmentSummaryMetrics \
+# Run GATK CollectAlignmentSummaryMetrics
+gatk CollectAlignmentSummaryMetrics \
   --INPUT $INPUT_BAM \
   --REFERENCE_SEQUENCE $REFERENCE \
   --OUTPUT $OUTPUT_METRICS_FILE
@@ -150,8 +150,8 @@ module load gatk/4.6.1.0<br>
 INPUT_BAM=/n/scratch/users/${USER:0:1}/${USER}/variant_calling/alignments/syn3_tumor_GRCh38.coordinate_sorted.bam
 REFERENCE=/n/groups/hbctraining/variant_calling/reference/GRCh38.fa
 OUTPUT_METRICS_FILE=/home/${USER}/variant_calling/reports/picard/syn3_tumor/syn3_tumor_GRCh38.CollectAlignmentSummaryMetrics.txt<br>
-# Run Picard CollectAlignmentSummaryMetrics
-java -jar $PICARD/picard.jar CollectAlignmentSummaryMetrics \
+# Run GATK CollectAlignmentSummaryMetrics
+gatk CollectAlignmentSummaryMetrics \
   --INPUT $INPUT_BAM \
   --REFERENCE_SEQUENCE $REFERENCE \
   --OUTPUT $OUTPUT_METRICS_FILE
