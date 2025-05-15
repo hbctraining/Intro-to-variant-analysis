@@ -152,7 +152,7 @@ And now, we need to create our variables:
 
 ```
 # Assign variables
-REFERENCE_SEQUENCE=/n/groups/hbctraining/variant_calling/reference/GRCh38.p7.fa
+REFERENCE_SEQUENCE=/n/groups/hbctraining/variant_calling/reference/GRCh38.fa
 REFERENCE_DICTIONARY=`echo ${REFERENCE_SEQUENCE%fa}dict`
 NORMAL_SAMPLE_NAME=syn3_normal
 NORMAL_BAM_FILE=/n/scratch/users/${USER:0:1}/${USER}/variant_calling/alignments/${NORMAL_SAMPLE_NAME}_GRCh38.p7.coordinate_sorted.bam
@@ -238,21 +238,21 @@ In order to run `MuTect2` we also **need to have a FASTA index file of our refer
 > 
 > <details>
 >  <summary><b>Click here for the commands to create a sequence directory</b></summary>
->  We can create the required sequence dictionary in <code>Picard</code>. But first, let's double check we have the <code>Picard</code> module loaded:
+>  We can create the required sequence dictionary in <code>GATK</code>/<code>Picard</code>. But first, let's double check we have the <code>GATK</code>/<code>Picard</code> module loaded:
 >  <pre>
->  module load picard/2.27.5</pre>
+>  module load gatk/4.6.1.0</pre>
 >  
 >  The command to do create the sequence dictionary is:<br>
 >  <pre>
 >  # YOU DON'T NEED TO RUN THIS
->  java -jar $PICARD/picard.jar CreateSequenceDictionary \
->  --REFERENCE /n/groups/hbctraining/variant_calling/reference/GRCh38.p7_genomic.fa
->  --OUTPUT /n/groups/hbctraining/variant_calling/reference/GRCh38.p7_genomic.dict</pre>
+>  gatk CreateSequenceDictionary \
+>  --REFERENCE /n/groups/hbctraining/variant_calling/reference/GRCh38.fa
+>  --OUTPUT /n/groups/hbctraining/variant_calling/reference/GRCh38.dict</pre>
 >  
 >  The components of this command are:
->  <ul><li><code>java -jar $PICARD/picard.jar CreateSequenceDictionary</code> This calls the <code>CreateSequenceDictionary</code> command within <code>Picard</code></li>
->  <li><code>--REFERENCE /n/groups/hbctraining/variant_calling/reference/GRCh38.p7_genomic.fa</code> This is the reference sequence to create the sequence dictionary from.</li>
->  <li><code>--OUTPUT /n/groups/hbctraining/variant_calling/reference/GRCh38.p7_genomic.dict</code> This is the output sequence dictionary.</li></ul>
+>  <ul><li><code>gatk CreateSequenceDictionary</code> This calls the <code>CreateSequenceDictionary</code> command within <code>GATK</code>/<code>Picard</code></li>
+>  <li><code>--REFERENCE /n/groups/hbctraining/variant_calling/reference/GRCh38.fa</code> This is the reference sequence to create the sequence dictionary from.</li>
+>  <li><code>--OUTPUT /n/groups/hbctraining/variant_calling/reference/GRCh38.dict</code> This is the output sequence dictionary.</li></ul>
 >   
 > Like indexing, once you have created the sequence dictionary for a reference genome, you won't need to do it again.
 > <hr />
@@ -273,7 +273,7 @@ In order to run `MuTect2` we also **need to have a FASTA index file of our refer
 # Load the GATK module
 module load gatk/4.1.9.0<br>
 # Assign variables
-REFERENCE_SEQUENCE=/n/groups/hbctraining/variant_calling/reference/GRCh38.p7.fa
+REFERENCE_SEQUENCE=/n/groups/hbctraining/variant_calling/reference/GRCh38.fa
 REFERENCE_DICTIONARY=`echo ${REFERENCE_SEQUENCE%fa}dict`
 NORMAL_SAMPLE_NAME=syn3_normal
 NORMAL_BAM_FILE=/n/scratch/users/${USER:0:1}/${USER}/variant_calling/alignments/${NORMAL_SAMPLE_NAME}_GRCh38.p7.coordinate_sorted.bam
