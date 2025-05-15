@@ -215,7 +215,7 @@ bwa mem \
     -M \
     -t 8 \
     -R "@RG\tID:syn3_normal\tPL:illumina\tPU:$SAMPLE\tSM:syn3_normal" \
-    /n/groups/hbctraining/variant_calling/reference/GRCh38.p7.fa \
+    /n/groups/hbctraining/variant_calling/reference/GRCh38.fa \
     ~/variant_calling/raw_data/syn3_normal_1.fq.gz \
     ~/variant_calling/raw_data/syn3_normal_2.fq.gz \
     -o /n/scratch/users/${USER:0:1}/${USER}/variant_calling/alignments/syn3_normal_GRCh38.p7.sam
@@ -233,11 +233,11 @@ Another advantage of using `bash` variables in this way is that it can reduce ty
 
 ```
 # Assign files to bash variables
-REFERENCE_SEQUENCE=/n/groups/hbctraining/variant_calling/reference/GRCh38.p7.fa
+REFERENCE_SEQUENCE=/n/groups/hbctraining/variant_calling/reference/GRCh38.fa
 LEFT_READS=/home/$USER/variant_calling/raw_data/syn3_normal_1.fq.gz
 RIGHT_READS=`echo ${LEFT_READS%1.fq.gz}2.fq.gz`
 SAMPLE=`basename $LEFT_READS _1.fq.gz`
-SAM_FILE=/n/scratch/users/${USER:0:1}/${USER}/variant_calling/alignments/${SAMPLE}_GRCh38.p7.sam
+SAM_FILE=/n/scratch/users/${USER:0:1}/${USER}/variant_calling/alignments/${SAMPLE}_GRCh38.sam
 ```
 
 > **NOTE:** `$RIGHT_READS` uses some `bash` string manipulation in order to swap the last parts of their filename. We also use `basename` to parse out the path from a file and when coupled with an argument after the filename, it will trim the end of the filename as well as we can see with the `$SAMPLE` variable.
@@ -273,11 +273,11 @@ bwa mem \
 module load gcc/14.2.0
 module load bwa/0.7.18<br>
 # Assign files to bash variables
-REFERENCE_SEQUENCE=/n/groups/hbctraining/variant_calling/reference/GRCh38.p7.fa
+REFERENCE_SEQUENCE=/n/groups/hbctraining/variant_calling/reference/GRCh38.fa
 LEFT_READS=/home/$USER/variant_calling/raw_data/syn3_normal_1.fq.gz
 RIGHT_READS=`echo ${LEFT_READS%1.fq.gz}2.fq.gz`
 SAMPLE=`basename $LEFT_READS _1.fq.gz`
-SAM_FILE=/n/scratch/users/${USER:0:1}/${USER}/variant_calling/alignments/${SAMPLE}_GRCh38.p7.sam<br>
+SAM_FILE=/n/scratch/users/${USER:0:1}/${USER}/variant_calling/alignments/${SAMPLE}_GRCh38.sam<br>
 # Align reads with bwa
 bwa mem \
     -M \
@@ -322,11 +322,11 @@ $ sed 's/normal/tumor/g' bwa_alignment_normal.sbatch >  bwa_alignment_tumor.sbat
 module load gcc/14.2.0
 module load bwa/0.7.18<br>
 # Assign files to bash variables
-REFERENCE_SEQUENCE=/n/groups/hbctraining/variant_calling/reference/GRCh38.p7.fa
+REFERENCE_SEQUENCE=/n/groups/hbctraining/variant_calling/reference/GRCh38.fa
 LEFT_READS=/home/$USER/variant_calling/raw_data/syn3_tumor_1.fq.gz
 RIGHT_READS=`echo ${LEFT_READS%1.fq.gz}2.fq.gz`
 SAMPLE=`basename $LEFT_READS _1.fq.gz`
-SAM_FILE=/n/scratch/users/${USER:0:1}/${USER}/variant_calling/alignments/${SAMPLE}_GRCh38.p7.sam<br>
+SAM_FILE=/n/scratch/users/${USER:0:1}/${USER}/variant_calling/alignments/${SAMPLE}_GRCh38.sam<br>
 # Align reads with bwa
 bwa mem \
     -M \
