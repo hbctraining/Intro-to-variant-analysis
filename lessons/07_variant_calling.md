@@ -218,8 +218,8 @@ In order to run `MuTect2` we also **need to have a FASTA index file of our refer
 >    <br>FASTA index files for reference sequences are fairly common requirements for a variety of NGS software packages. <code>Picard</code> currently does not feature an ability to create a FASTA index file. However, <code>samtools</code> is a very popular tool that is used for a variety of processes for processing BAM/SAM files and it also includes functionality for the creation of FASTA index files. First, we will need to load the <code>gcc</code> and <code>samtools</code> modules:
 >  
 >  <pre>
->  module load gcc/6.2.0
->  module load samtools/1.15.1</pre>
+>  module load gcc/14.2.0
+>  module load samtools/1.21 </pre>
 >  
 >  The command for indexing a FASTA file is straightforward and should run pretty quickly:
 >  <pre>
