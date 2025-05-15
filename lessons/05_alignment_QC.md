@@ -81,7 +81,7 @@ OUTPUT_METRICS_FILE=/home/${USER}/variant_calling/reports/picard/syn3_normal/syn
 Lastly, we can add the `GATK`/`Picard` command to gather the alignment metrics. 
 
 ```
-# Run GATK/Picard CollectAlignmentSummaryMetrics
+# Run GATK CollectAlignmentSummaryMetrics
 gatk CollectAlignmentSummaryMetrics \
   --INPUT $INPUT_BAM \
   --REFERENCE_SEQUENCE $REFERENCE \
