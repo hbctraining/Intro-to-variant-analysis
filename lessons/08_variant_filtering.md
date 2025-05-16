@@ -67,8 +67,8 @@ Next, we need to add the modules that we will be loading:
 
 ```
 # Load modules
-module load gatk/4.1.9.0
-module load snpEff/4.3g
+module load gatk/4.6.1.0 
+module load snpEff/5.2f  
 ```
 
 Next, we will add our variables:
