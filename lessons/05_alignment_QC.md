@@ -75,7 +75,7 @@ Next, let's assign our files to variables:
 # Assign variables
 INPUT_BAM=/n/scratch/users/${USER:0:1}/${USER}/variant_calling/alignments/syn3_normal_GRCh38.coordinate_sorted.bam
 REFERENCE=/n/groups/hbctraining/variant_calling/reference/GRCh38.fa
-OUTPUT_METRICS_FILE=/home/${USER}/variant_calling/reports/picard/syn3_normal/syn3_normal_GRCh38.CollectAlignmentSummaryMetrics.txt
+OUTPUT_METRICS_FILE=/home/${USER}/variant_calling/reports/gatk/syn3_normal/syn3_normal_GRCh38.CollectAlignmentSummaryMetrics.txt
 ```
 
 Lastly, we can add the `GATK`/`Picard` command to gather the alignment metrics. 
@@ -115,7 +115,7 @@ module load gatk/4.6.1.0<br>
 # Assign variables
 INPUT_BAM=/n/scratch/users/${USER:0:1}/${USER}/variant_calling/alignments/syn3_normal_GRCh38.coordinate_sorted.bam
 REFERENCE=/n/groups/hbctraining/variant_calling/reference/GRCh38.fa
-OUTPUT_METRICS_FILE=/home/${USER}/variant_calling/reports/picard/syn3_normal/syn3_normal_GRCh38.CollectAlignmentSummaryMetrics.txt<br>
+OUTPUT_METRICS_FILE=/home/${USER}/variant_calling/reports/gatk/syn3_normal/syn3_normal_GRCh38.CollectAlignmentSummaryMetrics.txt<br>
 # Run GATK CollectAlignmentSummaryMetrics
 gatk CollectAlignmentSummaryMetrics \
   --INPUT $INPUT_BAM \
@@ -149,7 +149,7 @@ module load gatk/4.6.1.0<br>
 # Assign variables
 INPUT_BAM=/n/scratch/users/${USER:0:1}/${USER}/variant_calling/alignments/syn3_tumor_GRCh38.coordinate_sorted.bam
 REFERENCE=/n/groups/hbctraining/variant_calling/reference/GRCh38.fa
-OUTPUT_METRICS_FILE=/home/${USER}/variant_calling/reports/picard/syn3_tumor/syn3_tumor_GRCh38.CollectAlignmentSummaryMetrics.txt<br>
+OUTPUT_METRICS_FILE=/home/${USER}/variant_calling/reports/gatk/syn3_tumor/syn3_tumor_GRCh38.CollectAlignmentSummaryMetrics.txt<br>
 # Run GATK CollectAlignmentSummaryMetrics
 gatk CollectAlignmentSummaryMetrics \
   --INPUT $INPUT_BAM \
@@ -166,11 +166,11 @@ Before we submit our jobs, let's **check the status of our previous `Picard` ali
 squeue --me
 ```
 
-* **If your `Picard` alignment processing steps are completed**, and you have the required input files then you can submit these jobs to collect alignment metrics:
+* **If your `GATK`/`Picard` alignment processing steps are completed**, and you have the required input files then you can submit these jobs to collect alignment metrics:
 
 ```bash
-sbatch picard_metrics_normal.sbatch
-sbatch picard_metrics_tumor.sbatch
+sbatch gatk_metrics_normal.sbatch
+sbatch gatk_metrics_tumor.sbatch
 ```
 > **NOTE:** Each of these scripts should only take about 15 minutes to run.  
 
