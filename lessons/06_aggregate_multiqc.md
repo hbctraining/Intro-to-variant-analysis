@@ -59,7 +59,7 @@ First, we will add our shebang line, description and `sbatch` directives
 
 ```
 #!/bin/bash
-# This sbatch script is for collating alignment metrics from FastQC and Picard using MultiQC
+# This sbatch script is for collating alignment metrics from FastQC and GATK/Picard using MultiQC
 
 # Assign sbatch directives
 #SBATCH -p priority
@@ -166,7 +166,7 @@ multiqc \
   <summary><b>Click here to see what our final <code>sbatch</code>code script for running <code>multiqc</code> should look like</b></summary> 
   <pre>
 #!/bin/bash
-# This sbatch script is for collating alignment metrics from FastQC and Picard using MultiQC<br>
+# This sbatch script is for collating alignment metrics from FastQC and GATK/Picard using MultiQC<br>
 # Assign sbatch directives
 #SBATCH -p priority
 #SBATCH -t 0-00:10:00
