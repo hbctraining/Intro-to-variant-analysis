@@ -23,7 +23,7 @@ The goal of this lesson is to show you how to **combine numerical stats from mul
 One nice feature of `MultiQC` is that it accepts many different file formats. It figures out which format was submitted and tailors the report to that type of analysis. For this workflow we will combine the following QC stats:
 
 * FastQC
-* Alignment QC from Picard
+* Alignment QC from `GATK`/`Picard`
 
 We have already discussed in great detail the FASTQC html report in a [previous lesson](02_fastqc.md). But we haven't yet looked at the output from Picard `CollectAlignmentSummaryMetrics`.
 
@@ -33,7 +33,7 @@ Once your scripts from the previous lesson have finished running, we can take a 
 Let's use `less` to view it:
 
 ```bash
-less ~/variant_calling/reports/picard/syn3_normal/syn3_normal_GRCh38.p7.CollectAlignmentSummaryMetrics.txt
+less ~/variant_calling/reports/picard/syn3_normal/syn3_normal_GRCh38.CollectAlignmentSummaryMetrics.txt
 ```
 
 This is a **tab-delimited file** which contains a header component, followed by a table with many columns. Each column lists a different metric and the associated value for this syn3_normal sample. It is difficult to view this in the terminal and so you can use the screenshot below to see the contents:
@@ -70,14 +70,59 @@ First, we will add our shebang line, description and `sbatch` directives
 #SBATCH -e multiqc_alignment_metrics_%j.err
 ```
 
-Next, we will load our modules:
+Next, we will load our modules and source a virtual environment. We haven't previously sourced an virtual environment, so let's talk about this briefly. HMS-RC, who manages the O2 cluster, would like to delegate some of the tools that rely on a `pip3 install` installation to users for a handful of reasons, including giving them the freedom to manage versions themselves. We have installed a version of `MultiQC` to use for the workshop in our space, however, when you do your analysis with your own data, **you will need create your own environment to source** for two reasons:
+
+1) We may not always be using the most current version of the tool and you should be trying to use that whenever possible
+2) We may upgrade our version at some point and you may cite the wrong version number if you aren't careful
+
+For instructions on how to install a virtual environment, please use the dropdown menu below.
+
+<details>
+  <summary><b>Click here to see how to install <code>multiqc</code> in a virtual environment</b></summary> 
+ First, navigate to where you would like to install your <code>multiqc</code> virtual environment:
+ <pre>
+ cd /path/to/install/multiqc/</pre>
+ Next, you will need to load <code>python</code> and the <code>gcc</code> module that it is complied against. Technically, you could compile it against the base version of <code>python</code> that is on the RedHat operating system, however, it is a better practice to compile it against a module as it can give you a bit more flexibility.
+ <pre>
+ module load gcc/14.2.0
+ module load python/3.13.1</pre>
+ Then, we will open a virtual environment in <code>python</code> with the <code>virtualenv</code> command and name it <code>multiqc_env</code>, but you can name it whatever you would like:
+ <pre>
+ virtualenv multiqc_env</pre>
+After we have created the virtual environment, we will need to source it:
+<pre>
+source multiqc_env/bin/activate</pre>
+<blockquote><i><b>NOTE:</b> If you named it something other than <code>multiqc_env</code>, then you will need to use that name in the above line instead of <code>multiqc_env</code>.</i></blockquote><br>
+<blockquote><i><b>NOTE:</b> Now that you have activated your virtual environment, your command-line should be preceded by <code>(multiqc_env)</code>. This represents the virtual environment that you're in and you should try to only be in one virtual environment at a time otherwise, you may run into dependency conflicts.</i></blockquote><br>
+Now we will install <code>multiqc</code> using a <code>pip3 install</code> command:
+<pre>
+pip3 install multiqc</pre>
+After it finished installing you can test that it works with:
+<pre>
+multiqc --help</pre>
+You can now exit the virtual environment with the <code>deactivate</code> command:
+<pre>
+deactivate</pre>
+In the future, if you would like to use this virtual environment, you will need to be sure to load the same version of <code>python</code> that the virtual enviornment was built within and then <code>source</code> the virtual environment:
+ <pre>
+ module load gcc/14.2.0
+ module load python/3.13.1
+ source /path/to/install/multiqc/multiqc_env/bin/activate</pre>
+If you would like to update your version of <code>multiqc</code>, then you will need to activate your virtual environemnt and use:
+ <pre>
+ pip3 install --upgrade multiqc</pre>
+More information on managing your personal <code>python</code> packages can be found on <a href="https://harvardmed.atlassian.net/wiki/spaces/O2/pages/1588662166/Personal+Python+Packages">HMS-RC's website</a>. 
+ <hr>
+</details>
 
 ```
 # Load modules
-module load gcc/9.2.0
-module load multiqc/1.21
+module load gcc/14.2.0
+module load python/3.13.1
+
+# Source an environment to use
+source /n/groups/hbctraining/workshop_environments/variant_analysis/multiqc_env/bin/activate
 ```
-> NOTE: `MultiQC` version 1.12 requires `gcc/9.2.0` on the O2 cluster.
 
 Next, we will assign our variables:
 
@@ -86,7 +131,7 @@ Next, we will assign our variables:
 REPORTS_DIRECTORY=/home/${USER}/variant_calling/reports/
 NORMAL_SAMPLE_NAME=syn3_normal
 TUMOR_SAMPLE_NAME=syn3_tumor
-REFERENCE=GRCh38.p7
+REFERENCE=GRCh38
 NORMAL_PICARD_METRICS=${REPORTS_DIRECTORY}picard/${NORMAL_SAMPLE_NAME}/${NORMAL_SAMPLE_NAME}_${REFERENCE}.CollectAlignmentSummaryMetrics.txt
 TUMOR_PICARD_METRICS=${REPORTS_DIRECTORY}picard/${TUMOR_SAMPLE_NAME}/${TUMOR_SAMPLE_NAME}_${REFERENCE}.CollectAlignmentSummaryMetrics.txt
 NORMAL_FASTQC_1=${REPORTS_DIRECTORY}fastqc/${NORMAL_SAMPLE_NAME}_1_fastqc.zip
@@ -130,8 +175,10 @@ multiqc \
 #SBATCH -o multiqc_alignment_metrics_%j.out
 #SBATCH -e multiqc_alignment_metrics_%j.err<br>
 # Load modules
-module load gcc/9.2.0
-module load multiqc/1.21<br>
+module load gcc/14.2.0
+module load python/3.13.1<br>
+# Source an environment to use
+source /n/groups/hbctraining/workshop_environments/variant_analysis/multiqc_env/bin/activate<br>
 # Assign variables
 REPORTS_DIRECTORY=/home/${USER}/variant_calling/reports/
 NORMAL_SAMPLE_NAME=syn3_normal
