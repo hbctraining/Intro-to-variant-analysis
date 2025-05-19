@@ -9,7 +9,7 @@ Approximate time: 30 minutes
 ## Learning Objectives
 
 - Verify alignment rates using `GATK`/`Picard`
-- Merge `Picard` QC metrics with `FastQC` metrics using `MultiQC`
+- Merge `GATK`/`Picard` QC metrics with `FastQC` metrics using `MultiQC`
 
 ## Collecting Alignment Statistics
 
