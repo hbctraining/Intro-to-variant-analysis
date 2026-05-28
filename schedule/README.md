@@ -6,8 +6,9 @@
 ## Pre-reading:
 
 * Please **study the contents** within the following lessons:
-  * [Shell basics review](https://hbctraining.github.io/Intro-to-rnaseq-hpc-salmon-flipped/lessons/shell_review.html)
-  * [Best Practices in Research Data Management (RDM)](https://hbctraining.github.io/Intro-to-rnaseq-hpc-salmon-flipped/lessons/04a_data_organization.html)
+  * [Shell basics review](https://hbctraining.github.io/Intro-to-bulk-RNAseq/lessons/shell_review.html)
+  * [HPC review](https://hbctraining.github.io/Intro-to-bulk-RNAseq/lessons/03_working_on_HPC.html)
+  * [Best Practices in Research Data Management (RDM)](https://hbctraining.github.io/Intro-to-bulk-RNAseq/lessons/04a_data_organization.html)
   * [Introduction to Variant Calling](../lessons/00_intro_to_variant_calling.md) 
 
 
