@@ -39,6 +39,13 @@ No additional installation requirements.
 ***Windows users:***
 [GitBash](https://git-scm.com/download/win)  
 
+### Citation
+
+To cite material from this course in your publications, please use:
+
+> William J. Gammerdinger, Radhika Khetani, Elizabeth Partan, Meeta Mistry & Heather Wick. (2026, November 24). hbctraining/Introduction to Variant Analysis. Zenodo. https://doi.org/10.5281/zenodo.24514667
+
+A lot of time and effort went into the preparation of these materials. Citations help us understand the needs of the community, gain recognition for our work, and attract further funding to support our teaching activities. Thank you for citing this material if it helped you in your data analysis.
 
 ****
 
